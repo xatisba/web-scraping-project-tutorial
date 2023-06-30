@@ -26,6 +26,7 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 import sqlite3
+import time
 
 ```
 
@@ -35,7 +36,7 @@ import sqlite3
 ```python
  
 url = " https://www.macrotrends.net/stocks/charts/TSLA/tesla/revenue"
-html_data = requests.get(url).text
+html_data = requests.get(url, time.sleep(10)).text
 
 ```
 
@@ -65,7 +66,7 @@ for row in tables[table_index].tbody.find_all("tr"):
     if (col != []):
         Date = col[0].text
         Revenue = col[1].text.replace("$", "").replace(",", "")
-        Tesla_revenue = Tesla_revenue.append({"Date":Date, "Revenue":Revenue}, ignore_index=True)
+        tesla_revenue = tesla_revenue.append({"Date":Date, "Revenue":Revenue}, ignore_index=True)
 
 
 #using read_html
@@ -83,9 +84,6 @@ for row in tables[table_index].tbody.find_all("tr"):
 tesla_revenue = tesla_revenue[tesla_revenue['Revenue'] != ""]
 tesla_revenue
 ```
-
-
-
 
 <div>
 <style scoped>
@@ -369,16 +367,12 @@ tesla_revenue
 </table>
 </div>
 
-
-
 **Step 7:** Make sure tesla_revenue is still a dataframe
 
 
 ```python
 type(tesla_revenue)
 ```
-
-
 
 
     pandas.core.frame.DataFrame
@@ -389,14 +383,10 @@ type(tesla_revenue)
 
 
 ```python
-
 records = tesla_revenue.to_records(index=False)
 list_of_tuples = list(records)
 list_of_tuples
 ```
-
-
-
 
     [('2022-03-31', '18756'),
      ('2021-12-31', '17719'),
@@ -450,10 +440,7 @@ list_of_tuples
      ('2009-09-30', '46'),
      ('2009-06-30', '27')]
 
-
-
 **Step 9:** Now let's create a SQLite3 database. Use the connect() function of sqlite3 to create a database. It will create a connection object. In case the databse does not exist, it will create it.
-
 
 ```python
 # Use the connect() function of sqlite3 to create a database. It will create a connection object.
@@ -462,7 +449,6 @@ connection = sqlite3.connect('Tesla.db')
 ```
 
 **Step 10:** Let's create a table in our database to store our revenue values.
-
 
 ```python
 c = connection.cursor()
