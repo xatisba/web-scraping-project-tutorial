@@ -4,20 +4,9 @@ In this project, we are going to scrape the Tesla revenue data and store it in a
 
 To know whether a website allows web scraping or not, you can look at the website’s “robots.txt” file. You can find this file by appending “/robots.txt” to the URL that you want to scrape.
 
-**Step 1:** Make sure you have sqlite3 and pandas installed. In case they are not installed, you can use the following command in the terminal:
-
-```py
-pip install pandas
-```
-
-and 
-
-```py
-pip install sqlite3
-```
+**Step 1:** Make sure you have all the dependences installed. Execute `pip install -r requirements.txt`.
 
 **Step 2:** Import necessary libraries
-
 
 ```python
 # import packages
@@ -27,28 +16,22 @@ import requests
 from bs4 import BeautifulSoup
 import sqlite3
 import time
-
 ```
 
 **Step 3:** Use the requests library to download the webpage https://www.macrotrends.net/stocks/charts/TSLA/tesla/revenue. Save the text of the response as a variable named html_data.
 
-
 ```python
- 
 url = " https://www.macrotrends.net/stocks/charts/TSLA/tesla/revenue"
 html_data = requests.get(url, time.sleep(10)).text
-
 ```
 
 **Step 4:** Parse the html data using beautiful_soup
-
 
 ```python
 soup = BeautifulSoup(html_data,"html.parser")
 ```
 
 **Step 5:** Use beautiful soup or the read_html function to extract the table with Tesla Quarterly Revenue and store it into a dataframe named tesla_revenue. The dataframe should have columns Date and Revenue. Make sure the comma and dollar sign is removed from the Revenue column.
-
 
 ```python
 #find all tables
@@ -78,7 +61,6 @@ for row in tables[table_index].tbody.find_all("tr"):
 ```
 
 **Step 6:** Remove the rows in the dataframe that are empty strings or are NaN in the Revenue column. Print the entire tesla_revenue DataFrame to see if you have any.
-
 
 ```python
 tesla_revenue = tesla_revenue[tesla_revenue['Revenue'] != ""]
@@ -368,7 +350,6 @@ tesla_revenue
 </div>
 
 **Step 7:** Make sure tesla_revenue is still a dataframe
-
 
 ```python
 type(tesla_revenue)
