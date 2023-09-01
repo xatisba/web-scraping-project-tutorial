@@ -1,94 +1,45 @@
-# Web scraping problem
+# Web scraping
 
-In this project, we are going to scrape the Tesla revenue data and store it in a dataframe, and also in a sqlite database.
+In this project, we are going to obtain and analyze data about Tesla's profit, which we will previously store in a DataFrame and in a sqlite database.
 
-To know whether a website allows web scraping or not, you can look at the website’s “robots.txt” file. You can find this file by appending `/robots.txt` to the URL that you want to scrape.
+## Step 1: Install dependencies
 
-## Step 1: Setup and installation
+Make sure you have the Python `Pandas` and `requests` packages installed to be able to work on the project. In case you do not have the libraries installed, run them in the console:
 
-Make sure you have sqlite3 and pandas installed. 
-
-In case they are not installed, you can use the following command in the terminal:
-
-```py
-pip install pandas sqlite3 requests
+```console
+pip install pandas requests
 ```
 
-Note: this will install both libraries and libraries
+## Step 2: Download HTML
 
-## Step 2: Create app.py 
+The download of the HTML of the web page will be done with the `requests` library, as we saw in the module theory.
 
-Open the `./src` folder and create a new app.py file and add the following content to it:
-
-```py
-print("Hello world")
-```
-
-Run the file using the command `python ./src/app.py`
+The web page we want to scrape is the following: https://www.macrotrends.net/stocks/charts/TSLA/tesla/revenue. It collects and stores information about the growth of the company every three months, since June 2009. It stores the text scraped from the web in some variable.
 
 
-### Step 3: Download the data using request library
+## Step 3: Transform the HTML
 
-Use the [requests library](https://requests.readthedocs.io/en/latest/user/quickstart/) to download the data.
+The next step to start extracting the information is to transform it into a structured object. Do this using `BeautifulSoup`. Once you have interpreted the HTML correctly, parse it to:
 
-The following website contains the tesla revenue data from the past few years:
-https://www.macrotrends.net/stocks/charts/TSLA/tesla/revenue
-
-Save the text of the response as a variable named html_data.
-
-### Step 4: Parse the html data using beautiful_soup
-
-Create a new intance of BeautifulSoup with the html_data.
-
-Use beautiful soup or the read_html function to extract the table with Tesla Quarterly Revenue and store it into a dataframe named tesla_revenue. The dataframe should have columns Date and Revenue. Make sure the comma and dollar sign is removed from the Revenue column. Inspect the html code to know what parts of the table should be found.
-
-1. find all tables
-2. find table with Tesla quarterly revenue
-3. create the dataframe        
-4. Iterate over the table rows to get the values and remove the `$` and `comma` 
-
-## Step 5: Clean rows
-
-Remove the rows in the dataframe that are empty strings or are `NaN` in the Revenue column. 
-
-Print the entire `tesla_revenue` DataFrame to see if you have any.
+1. find all the tables.
+2. Find the table with the quarterly evolution.
+4. Store the data in a DataFrame.
 
 
-### Step 6: Insert the data into sqlite3
+## Step 4: Process the DataFrame
 
-Make sure tesla_revenue is still a dataframe
-
-Insert the data into sqlite3 by converting the dataframe into a list of tuples
+Next, clean up the rows to get clean values by removing `$` and commas. Remove also those that are empty or have no information.
 
 
-### Step 7: Connect to SQLite
+## Step 5: Store the data in sqlite
 
-Now let's create a SQLite3 database. Use the connect() function of sqlite3 to create a database. It will create a connection object. In case the databse does not exist, it will create it.
+Create an empty instance of the database and include the clean data in it, as we saw in the database module. Once you have an empty database:
+
+1. Create the table.
+2. Insert the values.
+3. Store (`commit`) the changes.
 
 
-Use the `sqlite3.connect()` function of sqlite3 to create a database. It will create a connection object.
+## Step 6: Visualize the data
 
-
-### Step 8: Let's create a table in our database to store our revenue values:
-
-1. Create table
-2. Insert the values
-3. Save (commit) the changes
-
-### Step 9: Now retrieve the data from the database
-
-Our database name is “Tesla.db”. We saved the connection to the connection object.
-
-Next time we run this file, it just connects to the database, and if the database is not there, it will create one.
-
-### Step 10: Finally create a plot to visualize the data
-
-What kind of visualizations show we do?
-
-Source:
-
-https://github.com/bhavyaramgiri/Web-Scraping-and-sqlite3/blob/master/week%209-%20web%20scraping%20sqlite.ipynb
-
-https://coderspacket.com/scraping-the-web-page-and-storing-it-in-a-sqlite3-database
-
-https://gist.github.com/elifum/09dcaecfbc6c6e047222db3fcfe5f3b8
+What types of visualizations can we make? Suggest at least 3 and plot them.
