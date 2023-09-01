@@ -21,7 +21,7 @@ The web page we want to scrape is the following: https://www.macrotrends.net/sto
 
 The next step to start extracting the information is to transform it into a structured object. Do this using `BeautifulSoup`. Once you have interpreted the HTML correctly, parse it to:
 
-1. find all the tables.
+1. Find all the tables.
 2. Find the table with the quarterly evolution.
 4. Store the data in a DataFrame.
 
