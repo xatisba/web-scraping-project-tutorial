@@ -4,9 +4,9 @@ In this project, we are going to obtain and analyze data about Tesla's profit, w
 
 ## Step 1: Install dependencies
 
-Make sure you have the Python `Pandas` and `requests` packages installed to be able to work on the project. In case you do not have the libraries installed, run them in the console:
+Make sure you have the Python `pandas` and `requests` packages installed to be able to work on the project. In case you do not have the libraries installed, run them in the console:
 
-```console
+```bash
 pip install pandas requests
 ```
 
@@ -23,7 +23,7 @@ The next step to start extracting the information is to transform it into a stru
 
 1. Find all the tables.
 2. Find the table with the quarterly evolution.
-4. Store the data in a DataFrame.
+3. Store the data in a DataFrame.
 
 
 ## Step 4: Process the DataFrame
