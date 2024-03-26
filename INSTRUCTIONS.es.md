@@ -14,7 +14,7 @@ pip install pandas requests
 
 La descarga del HTML de la página web se realizará con la librería `requests`, como vimos en la teoría del módulo.
 
-La página web que queremos scrapear es la siguiente: https://www.macrotrends.net/stocks/charts/TSLA/tesla/revenue. Recopila y almacena información sobre el crecimiento de la compañía cada tres meses, desde junio de 2009. Almacena el texto scrapeado de la web en alguna variable.
+La página web que queremos scrapear es la siguiente: [https://ycharts.com/companies/TSLA/revenues](https://ycharts.com/companies/TSLA/revenues). Recopila y almacena información sobre el crecimiento de la compañía cada tres meses, desde junio de 2009. Almacena el texto scrapeado de la web en alguna variable.
 
 
 ## Paso 3: Transforma el HTML

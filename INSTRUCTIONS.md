@@ -14,7 +14,7 @@ pip install pandas requests
 
 The download of the HTML of the web page will be done with the `requests` library, as we saw in the module theory.
 
-The web page we want to scrape is the following: https://www.macrotrends.net/stocks/charts/TSLA/tesla/revenue. It collects and stores information about the growth of the company every three months, since June 2009. It stores the text scraped from the web in some variable.
+The web page we want to scrape is the following: [https://ycharts.com/companies/TSLA/revenues](https://ycharts.com/companies/TSLA/revenues). It collects and stores information about the growth of the company every three months, since June 2009. It stores the text scraped from the web in some variable.
 
 
 ## Step 3: Transform the HTML
