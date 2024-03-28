@@ -3,10 +3,10 @@
 <!--endhide-->
 
 - Become familiar with a web environment in which you want to extract certain information.
-- Develop a code to obtain its content and extract it from the specific table.
+- Develop a code to obtain its content and extract it from a specific table.
 - Use a database to store the data and process it.
 
-## 🌱  How to start this project.
+## 🌱 How to start this project
 
 Follow the instructions below:
 
@@ -16,10 +16,10 @@ Follow the instructions below:
 
 ## 🚛 How to deliver this project
 
-Once you have finished solving the exercises, be sure to commit your changes, push to your repository and go to 4Geeks.com to upload the repository link.
+Once you have finished solving the exercises, be sure to commit your changes, push them to your repository, and go to 4Geeks.com to upload the repository link.
 
 ## 📝 Instructions
 
 Read the contents of the `./INSTRUCTIONS.md` file containing the steps to complete the project, follow them and develop the solution first in `./src/explore.ipynb` for testing and then move the clean code to `./src/app.py`. Be sure to delete the notebook once you no longer need it to keep the project clean and tidy.
 
-> NOTE: Solution: https://github.com/4geeksacademy/web-scraping-project-tutorial/blob/main/src/solution.ipynb
+> Note: We also incorporated the solution samples on ./src/solution.ipynb that we strongly suggest you only use if you are stuck for more than 30 min or if you have already finished and want to compare it with your approach.
