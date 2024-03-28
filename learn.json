@@ -2,7 +2,7 @@
 	"slug" : "web-scraping-project-tutorial",
 	"title" : "Web Scraping with Python and Beautiful Soup",
 	"preview": "https://github.com/4GeeksAcademy/web-scraping-project-tutorial/blob/main/assets/preview.png?raw=true",
-	"solution": "https://github.com/4GeeksAcademy/web-scraping-project-tutorial/blob/main/src/solution.md",
+	"solution": "https://github.com/4GeeksAcademy/web-scraping-project-tutorial/blob/main/src/solution.ipynb",
 	"status": "published",
 	"translations": ["us"],
 	"technologies": ["web-scraping", "beautiful-soup"],
